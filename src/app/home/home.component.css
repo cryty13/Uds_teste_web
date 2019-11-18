@@ -1,0 +1,54 @@
+.btn-blue{
+    color: #ffffff;
+    font-size: 0.9em;
+    font-weight: bold;
+    background-color: #005ca4;
+    border-radius: 0.7em;
+}
+.cartw{
+    width: 90%;
+    margin-left: 3%;
+    margin-top: 3%;
+    background: none;
+    border: none !important;
+}
+
+.col-11{
+    color: #005ca4
+}
+
+.termo{
+    padding-left: 2em;
+    padding-top: 2em;
+}
+
+@media only screen and (max-width : 1924px) {
+    .col-4 {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 1em;
+    }
+    .card-header{
+        background: none !important;
+    }
+    .conteudo {
+        margin-top: -2em;
+    }
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }

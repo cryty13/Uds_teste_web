@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<nav class="navbar navbar-expand-lg navbar-light" id="barra" style="background-color: silver;">
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/uds.png" width="40" class="brand" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03"
+        aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor03">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/home" routerLinkActive="active">Cadastrar Pedido</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/Pedido" routerLinkActive="active">Visualizar Pedido</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="conteudo">
+    <div class="row">
+        <!-- <div class="card" style="width: 80%;"> -->
+        <div class="col-md-12">
+            <div class="card cartw">
+                <div class="card-header" style="border: 2px solid #ccc!important;">
+                    <div class="row text-center">
+                        <div class="col-11">
+                            <label style="margin-left: 2em;"> Pizzaria Uds</label>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="form">
+                            <div class="row">
+                                <div class="col-3">
+                                </div>
+                                <div class="col-3">
+                                    <label for="validationCustom03">Tamanho</label>
+                                    <select id="Tamanho_id" formControlName="Tamanho" class="form-control ">
+                                        <option *ngFor="let key of ListaTamanho" value={{key.descricao}}>
+                                            {{key.descricao}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-3">
+                                    <label for="validationCustom03">Sabor</label>
+                                    <select id="Sabor_id" formControlName="Sabor" class="form-control ">
+                                        <option *ngFor="let key of ListaSabor" value={{key.descricao}}>
+                                            {{key.descricao}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="row">
+                                <div class="col-5"></div>
+                                <div class="col-3">
+                                    <Label style="margin-left: 2em;">Adicionais</Label>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-1">
+                                </div>
+                                <div class="col-3">
+                                    <label for="validationCustom03">Adicional</label>
+                                    <select id="Personalizacao" formControlName="Personalizacao" class="form-control">
+                                        <option *ngFor="let key of ListaPersonalizacao" value={{key.descricao}}>
+                                            {{key.descricao}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-3" style="margin-top: 2em;">
+                                    <button type="button" (click)="Adicional()" class="btn btn-blue px-4"
+                                        style="margin-left: 2em;">Adicionar</button>
+                                </div>
+                                <div class="col-3">
+                                    <table>
+                                        <tr>
+                                            <th>Adicional</th>
+                                            <th>Valor</th>
+                                        </tr>
+                                        <tr *ngFor="let key of ListaAdicional">
+                                            <td>{{key.descricao}}</td>
+                                            <td>{{key.valor}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <br>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-5"></div>
+                        <div class="col-2">
+                            <button type="button" [disabled]="!form.valid" (click)="Calcular()"
+                                class="btn btn-blue px-4" style="margin-left: 2em;">Calcular</button>
+
+                            <br />
+                            <br />
+                        </div>
+                        <div class="1">
+                            <button type="button" (click)="limpar()" class="btn px-4" style="margin-left: 2em;">Limpar
+                                tudo</button>
+                        </div>
+                    </div>
+                    <hr [hidden]="!retorno">
+                    <div class="row" [hidden]="!retorno">
+                        <div class="col-5"></div>
+                        <div class="col-3">
+                            <Label style="margin-left: 2em;">Valor Total: R${{ValorPagar}}</Label>
+                            <Label style="margin-left: 2em;">{{Tempo}} Minutos</Label>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" [disabled]="!form.valid" (click)="Comprar()" class="btn btn-blue px-4"
+                                style="margin-left: 2em;">Comprar</button>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
